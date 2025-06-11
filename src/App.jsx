@@ -7,7 +7,7 @@ import AddsOn from "./Pages/Adds-On/adds-on";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/conference-event-planner">
       <Routes>
         <Route path="/" element={<About />} />
         <Route path="/" element={<ConferenceEvent />}>
