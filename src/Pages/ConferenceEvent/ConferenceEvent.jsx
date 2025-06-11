@@ -1,27 +1,27 @@
 import { useState } from "react";
-import "./ConferenceEvent.css";
-import TotalCost from "./Pages/TotalCost/TotalCost";
-import { Link, Outlet } from "react-router-dom";
+import TotalCost from "../TotalCost/TotalCost";
+import { Link, Outlet, useLocation } from "react-router-dom";
+import "@/index.css";
 
 const ConferenceEvent = () => {
   const [showItems, setShowItems] = useState(false);
-
-  const handleToggleItems = () => {
-    console.log("handleToggleItems called");
-    setShowItems(!showItems);
-  };
-
-  const ItemsDisplay = ({ items }) => {};
+  const path = useLocation().pathname.split("/").pop();
 
   return (
-    <div className={"event-list-container"}>
+    <div className="event-list-container">
       <navigator className="navbar_event_conference">
         <div className="company_logo">Conference Expense Planner</div>
         <div className="left_navbar">
           <div className="nav_links">
-            <Link to="/venue">Venue</Link>
-            <Link to="/adds-on">Add-ons</Link>
-            <Link to="/meals">Meals</Link>
+            <Link className={path === "venue" ? "active" : ""} to="/venue">
+              Venue
+            </Link>
+            <Link className={path === "adds-on" ? "active" : ""} to="/adds-on">
+              Add-ons
+            </Link>
+            <Link className={path === "meals" ? "active" : ""} to="/meals">
+              Meals
+            </Link>
           </div>
           <button
             className="details_button"

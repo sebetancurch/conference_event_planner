@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "../../ConferenceEvent.css";
+import "@/index.css";
 
 const AboutUs = () => {
   return (

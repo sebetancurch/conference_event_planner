@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { incrementAvQuantity, decrementAvQuantity } from "../../redux/avSlice";
-import "../../ConferenceEvent.css";
+import "@/index.css";
 
 const AddsOn = () => {
   const avItems = useSelector((state) => state.av);

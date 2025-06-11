@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
-import "../../ConferenceEvent.css";
-import "./TotalCost.css";
+import "@/index.css";
 
 const TotalCost = () => {
   const venueItems = useSelector((state) => state.venue).map((item) => ({
@@ -17,13 +16,26 @@ const TotalCost = () => {
   }));
   const numberOfPeople = useSelector((state) => state.meals.numberOfPeople);
   const totalItems = venueItems.concat(avItems, mealsItems);
+  const totalCost = totalItems.reduce((total, item) => {
+    if (item.type === "meals") {
+      if (item.selected) {
+        return total + item.cost * numberOfPeople;
+      }
+      return total;
+    } else {
+      return total + item.cost * item.quantity;
+    }
+  }, 0);
 
   return (
     <div className="pricing-app">
       <div className="display_box">
         <div className="header">
           <p className="preheading">
-            <h3>Total cost for the event</h3>
+            <h3>
+              Total cost for the event: $
+              {Number.isNaN(totalCost) ? 0 : totalCost.toFixed(2)}
+            </h3>
           </p>
         </div>
         <div>
@@ -50,7 +62,9 @@ const TotalCost = () => {
                     </td>
                     <td>
                       {item.type === "meals"
-                        ? `${item.cost * numberOfPeople}`
+                        ? item.selected
+                          ? `${item.cost * numberOfPeople}`
+                          : 0
                         : `${item.cost * item.quantity}`}
                     </td>
                   </tr>

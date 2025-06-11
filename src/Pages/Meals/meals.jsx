@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { toggleMealSelection, setNumberOfPeople } from "../../redux/mealsSlice";
-import "../../ConferenceEvent.css";
-import "./meals.css";
+import "@/index.css";
 
 const Meals = () => {
   const mealsItems = useSelector((state) => state.meals.list);

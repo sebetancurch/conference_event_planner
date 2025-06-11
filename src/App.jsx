@@ -1,4 +1,4 @@
-import ConferenceEvent from "./ConferenceEvent";
+import ConferenceEvent from "./Pages/ConferenceEvent/ConferenceEvent";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import About from "./Pages/AboutUs/AboutUs";
 import Venue from "./Pages/Venue/venue";

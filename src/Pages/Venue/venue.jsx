@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { incrementQuantity, decrementQuantity } from "../../redux/venueSlice";
-import "../../ConferenceEvent.css";
+import "@/index.css";
 
 const Venue = () => {
   const venueItems = useSelector((state) => state.venue);
